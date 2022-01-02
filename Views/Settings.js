@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, TextInput, View, Text } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import ButtonComponent from "../components/ButtonComponent";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -34,6 +41,15 @@ function Settings(props) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        onPress={() => props.navigation.goBack()}
+        style={{ alignSelf: "baseline", top: -30 }}
+      >
+        <Image
+          style={{ marginLeft: 15 }}
+          source={require("../assets/chevron-left.png")}
+        />
+      </TouchableOpacity>
       <View style={{ width: "100%", alignItems: "center" }}>
         <Text style={{ marginBottom: 20 }}>Votre TOKEN API Minestrator : </Text>
         <View style={styles.containerInput}>
